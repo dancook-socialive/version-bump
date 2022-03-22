@@ -1,4 +1,4 @@
-const greeting = function(message) {
+const greeting = function(message = "World") {
   return `Hello, ${message}!`
 }
 
