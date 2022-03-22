@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'build app'",
+    "start": "yarn node ./index.js"
+  },
+  "dependencies": {
+    "@version-bump/shared": "1.0.0"
+  }
+}
