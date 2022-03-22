@@ -4,7 +4,7 @@
 __metadata:
   version: 6
 
-"@version-bump/shared@1.0.0, @version-bump/shared@workspace:@version-bump/shared":
+"@version-bump/shared@1.0.1, @version-bump/shared@workspace:@version-bump/shared":
   version: 0.0.0-use.local
   resolution: "@version-bump/shared@workspace:@version-bump/shared"
   languageName: unknown
@@ -14,7 +14,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:app"
   dependencies:
-    "@version-bump/shared": 1.0.0
+    "@version-bump/shared": 1.0.1
   languageName: unknown
   linkType: soft
 

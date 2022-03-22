@@ -7,6 +7,6 @@
     "start": "yarn node ./index.js"
   },
   "dependencies": {
-    "@version-bump/shared": "1.0.0"
+    "@version-bump/shared": "1.0.1"
   }
 }
