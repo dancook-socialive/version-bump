@@ -18,8 +18,8 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"version-bump@workspace:.":
+"root@workspace:.":
   version: 0.0.0-use.local
-  resolution: "version-bump@workspace:."
+  resolution: "root@workspace:."
   languageName: unknown
   linkType: soft
