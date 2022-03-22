@@ -17,7 +17,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "version-bump",\
+        "name": "root",\
         "reference": "workspace:."\
       },\
       {\
@@ -34,7 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["@version-bump/shared", ["workspace:@version-bump/shared"]],\
       ["app", ["workspace:app"]],\
-      ["version-bump", ["workspace:."]]\
+      ["root", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -66,11 +66,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["version-bump", [\
+      ["root", [\
         ["workspace:.", {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["version-bump", "workspace:."]\
+            ["root", "workspace:."]\
           ],\
           "linkType": "SOFT"\
         }]\
