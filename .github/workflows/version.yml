@@ -6,11 +6,10 @@ name: Build
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [closed]
 
 jobs:
   update_version:
-    if: github.ref == 'refs/heads/main' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
