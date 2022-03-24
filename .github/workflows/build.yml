@@ -22,6 +22,3 @@ jobs:
 
     - name: Build
       run: yarn build
-
-    - name: Check versioning strategy
-      run: yarn version check
