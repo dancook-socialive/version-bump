@@ -6,7 +6,12 @@ on:
         - main
       tags:
         - 'release/**'
+  pull_request:
 
 jobs:
+  version:
+    uses: ./.github/workflows/version.yml
+
   build:
+    needs: version
     uses: ./.github/workflows/build.yml
