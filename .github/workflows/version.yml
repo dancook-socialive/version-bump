@@ -24,7 +24,7 @@ jobs:
 
       - name: apply version
         run: |
-          sed -i 's/"version": ".*",/"version": "$GitVersion_SemVer",/' app/package.json
+          sed -i 's/"version": ".*",/"version": "${{ env.GITVERSION_SEMVER }}",/' app/package.json
           cat app/package.json
 
       # - name: Commit version change
