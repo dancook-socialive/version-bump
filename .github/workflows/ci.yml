@@ -7,6 +7,7 @@ on:
       tags:
         - 'release/**'
   pull_request:
+    types: [ closed, opened, synchronize, reopened ]
 
 jobs:
   build:

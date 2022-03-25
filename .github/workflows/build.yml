@@ -23,17 +23,17 @@ jobs:
           useConfigFile: true
 
       - name: apply version
-        if: ${{ github.event.pull_request }}
         run: |
           sed -i 's/"version": ".*",/"version": "${{ env.GITVERSION_SEMVER }}",/' app/package.json
           cat app/package.json
 
-        # - name: Commit version change
-        #   run: |
-        #     git config --global user.name 'Dan on a Pipe'
-        #     git config --global user.email 'dancook-socialive@users.noreply.github.com'
-        #     git commit -am "Increment version"
-        #     git push
+      - name: Commit version change
+        if: github.ref == 'refs/heads/main' && github.event.pull_request.merged == true
+        run: |
+          git config --global user.name 'Dan on a Pipe'
+          git config --global user.email 'dancook-socialive@users.noreply.github.com'
+          git commit -am "Increment version to ${{ env.GITVERSION_SEMVER }}"
+          git push
 
       - name: Setup node
         uses: actions/setup-node@v2
