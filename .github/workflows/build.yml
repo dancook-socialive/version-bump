@@ -7,39 +7,49 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - name: apply version
-      env:
-        SEMVER: ${{ needs.version.outputs.semVer }}
-      run: |
-        sed -i 's/"version": ".*",/"version": "${{ env.SEMVER }}",/' app/package.json
-        cat app/package.json
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: "5.x"
 
-      # - name: Commit version change
-      #   run: |
-      #     git config --global user.name 'Dan on a Pipe'
-      #     git config --global user.email 'dancook-socialive@users.noreply.github.com'
-      #     git commit -am "Increment version"
-      #     git push
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+        with:
+          useConfigFile: true
 
-    - name: Setup node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-        cache: 'yarn'
+      - name: apply version
+        if: ${{ github.event.pull_request }}
+        run: |
+          sed -i 's/"version": ".*",/"version": "${{ env.GITVERSION_SEMVER }}",/' app/package.json
+          cat app/package.json
 
-    - name: Install dependencies
-      run: yarn install
+        # - name: Commit version change
+        #   run: |
+        #     git config --global user.name 'Dan on a Pipe'
+        #     git config --global user.email 'dancook-socialive@users.noreply.github.com'
+        #     git commit -am "Increment version"
+        #     git push
 
-    - name: Build
-      run: yarn build
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "yarn"
 
-    - name: package
-      uses: actions/upload-artifact@v2
-      with:
-        name: package
-        path: |
-          ./app
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: package
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: |
+            ./app
