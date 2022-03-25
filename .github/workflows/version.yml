@@ -25,6 +25,7 @@ jobs:
       - name: apply version
         run: |
           sed -i 's/"version": ".*",/"version": "$GITVERSIONNUMBER",/' app/package.json
+          cat app/package.json
         env:
           GITVERSIONNUMBER: $(GitVersion.SemVer)
 
