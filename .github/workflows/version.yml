@@ -1,36 +1,25 @@
-name: Build
-
-# regardless of path execute version check
-# ONLY if a push to master bump the version
-# always run build
+name: Version
 
 on:
-  pull_request:
-    types: [closed]
+  workflow_call:
 
 jobs:
   update_version:
     runs-on: ubuntu-latest
+    outputs:
+      semVer: ${{ steps.gitversion.outputs.semVer }}
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Setup node
-        uses: actions/setup-node@v2
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
         with:
-          node-version: "14"
-          cache: "yarn"
+          versionSpec: '5.x'
 
-      - name: check version
-        run: yarn version check
-
-      - name: apply version
-        run: yarn version apply --all
-
-      - name: Commit version change
-        run: |
-          git config --global user.name 'Dan on a Pipe'
-          git config --global user.email 'dancook-socialive@users.noreply.github.com'
-          git commit -am "Increment version"
-          git push
+      - name: Determine Version
+        id:   gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+        with:
+          useConfigFile: true
