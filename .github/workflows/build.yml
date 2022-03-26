@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          repository: "dancook-socialive/version-bump"
           token: "${{ secrets.GH_ACTION_TOKEN }}"
           fetch-depth: 0
 
