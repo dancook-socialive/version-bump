@@ -10,4 +10,4 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml
+    uses: dancook-socialive/version-bump/.github/workflows/build.yml@master
