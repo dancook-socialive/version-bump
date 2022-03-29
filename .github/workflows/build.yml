@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: "dancook-socialive/version-bump"
-          token: "fake"
+          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
           fetch-depth: 0
 
       - name: Install GitVersion
