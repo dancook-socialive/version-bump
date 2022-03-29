@@ -14,12 +14,10 @@ jobs:
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          git-message: 'chore(release): {version}'
-          git-user-name: 'Dan in a Pipe'
-          git-user-email: 'dancook-socialive@github.actions.com'
-          preset: 'angular'
-          tag-prefix: 'v'
+          git-push: false
+          output-file: './app/CHANGELOG.md'
+          version-file: './app/package.json'
+          skip-commit: true
 
       - name: Setup node
         uses: actions/setup-node@v2
