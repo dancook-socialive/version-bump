@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: build ${{ github.ref_name }}
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: running on ${{ github.ref_name }}
