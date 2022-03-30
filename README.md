@@ -8,3 +8,5 @@ To Do:
 - [ ] Build uses new version in it's artifact
 - [ ] Check that there is a version commit
 - [ ] Configure gitversion
+
+a change
