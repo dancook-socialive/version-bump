@@ -1,4 +1,4 @@
-name: Manual Run '(${{ github.ref_name }})' > '(${{ github.event.inputs.environment }})''
+name: Manual Run
 
 on:
   workflow_dispatch:
