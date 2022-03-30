@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --global user.name 'Dan on a Pipe'
           git config --global user.email 'dancook-socialive@users.noreply.github.com'
-          git commit -am "Increment version to ${{ env.GITVERSION_SEMVER }} [no ci]"
+          git commit -am "[skip ci] Increment version to ${{ env.GITVERSION_SEMVER }}"
           git push
 
       - name: Setup node
