@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          persist-credentials: true
         env:
           token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
 
@@ -35,8 +36,8 @@ jobs:
       - name: Commit version change
         if: github.ref == 'refs/heads/main'
         run: |
-          git config --global user.name 'Dan on a Pipe'
-          git config --global user.email 'dancook-socialive@users.noreply.github.com'
+          git config --global user.name 'Dan Cook'
+          git config --global user.email '93783090+dancook-socialive@users.noreply.github.com'
           git commit -am "[skip ci] Increment version to ${{ env.GITVERSION_SEMVER }}"
           git push
 
