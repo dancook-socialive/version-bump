@@ -2,6 +2,10 @@ name: Build
 
 on:
   workflow_call:
+    runSonar:
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   build:
@@ -9,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: running on ${{ github.ref_name }}
+        run: echo 'hello, world'
+
+      - name: run runSonar
+        if: inputs.runSonar
         run: echo 'hello, world'
         
       - uses: actions/checkout@v3

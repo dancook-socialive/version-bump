@@ -2,24 +2,8 @@ name: Manual Run
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        type: string
-        required: true
-      runTests:
-        description: Run the tests?
-        type: boolean
-        default: true
-        required: false
 
 jobs:
-  test:
-    if: github.event.inputs.runTests
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "ran the tests"
-
   build:
     if: (!startsWith(github.ref, 'refs/tags/release'))
     uses: ./.github/workflows/build.yml
