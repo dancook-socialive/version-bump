@@ -2,10 +2,11 @@ name: Build
 
 on:
   workflow_call:
-    runSonar:
-        required: false
-        type: boolean
-        default: true
+    inputs:
+      runSonar:
+          required: false
+          type: boolean
+          default: true
 
 jobs:
   build:
