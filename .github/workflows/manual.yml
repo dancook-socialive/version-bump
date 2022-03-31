@@ -15,7 +15,7 @@ on:
 
 jobs:
   test:
-    if: runTests
+    if: github.event.inputs.runTests
     runs-on: ubuntu-latest
     steps:
       - run: echo "ran the tests"
