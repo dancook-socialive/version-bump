@@ -2,13 +2,16 @@ name: Manual Run
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        type: string
-        required: true
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml
+    if: (!startsWith(github.ref, 'refs/tags/release'))
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "not a release tag"
 
+  build-prod:
+    if: startsWith(github.ref, 'refs/tags/release')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "it's a release tag"
