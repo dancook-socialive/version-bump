@@ -6,6 +6,12 @@ on:
 jobs:
   build:
     if: (!startsWith(github.ref, 'refs/tags/release'))
-    uses: ./.github/workflows/build.yml
-    with:
-      runSonar: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "not a release tag"
+
+  build-prod:
+    if: startsWith(github.ref, 'refs/tags/release')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "it's a release tag"
