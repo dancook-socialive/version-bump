@@ -20,7 +20,7 @@ jobs:
         if: inputs.runSonar
         run: echo 'hello, world'
         
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -48,7 +48,6 @@ jobs:
         run: |
           git config --global user.name 'Dan Cook'
           git config --global user.email '93783090+dancook-socialive@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "[skip ci] Increment version to ${{ env.GITVERSION_SEMVER }}"
           git push
 
