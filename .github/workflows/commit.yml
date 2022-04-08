@@ -11,6 +11,8 @@ jobs:
         with:
           fetch-depth: 0
           repository: ${{ github.repository }}
+        env:
+          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
       
       - run: echo "foo" >> changelog.md
 
