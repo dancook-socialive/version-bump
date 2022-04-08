@@ -13,4 +13,3 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       runSonar: ${{ (!startsWith(github.ref, 'refs/tags/release')) }}
-
