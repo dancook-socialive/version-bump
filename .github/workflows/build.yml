@@ -47,8 +47,6 @@ jobs:
       - name: Commit version change
         if: github.ref == 'refs/heads/main'
         run: |
-          git config --global user.name 'Dan Cook'
-          git config --global user.email '93783090+dancook-socialive@users.noreply.github.com'
           git remote set-url origin https://dancook-socialive:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
           git commit -am "[skip ci] Increment version to ${{ env.GITVERSION_SEMVER }}"
           git push
