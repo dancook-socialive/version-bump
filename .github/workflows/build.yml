@@ -25,6 +25,8 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
           repository: ${{ github.repository }}
+        env:
+          token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.7
