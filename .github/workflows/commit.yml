@@ -1,0 +1,20 @@
+name: Commit test
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          repository: ${{ github.repository }}
+      
+      - run: echo "foo" >> changelog.md
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: auto commit
