@@ -24,6 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          repository: ${{ github.repository }}
         env:
           token: "${{ secrets.PERSONAL_ACCESS_TOKEN }}"
 
